@@ -43,14 +43,16 @@ module.exports = createReactClass({
       width: this.props.width}}>
 
       {this.state.data.map(function (row, i) {
-        return <div style={{background: this.getColor(row.species),
-          borderRadius: 5,
-          bottom: linmap(0, this.props.height, 0, 39000, row.petalLength),
-          cursor: 'pointer',
-          height: 10,
-          left: linmap(0, this.props.width, 0, 430000, row.petalWidth),
-          position: 'absolute',
-          width: 10}}
+        return <div
+          key={Math.random()}
+          style={{background: this.getColor(row.species),
+            borderRadius: 5,
+            bottom: linmap(1, 6.9, 0, this.props.height, row.petalLength) - 5,
+            cursor: 'pointer',
+            height: 10,
+            left: linmap(0.1, 2.5, 0, this.props.width, row.petalWidth) - 5,
+            position: 'absolute',
+            width: 10}}
           onMouseEnter={function (e) { this.onMouseEnter(e, row, i) }.bind(this)}
           onMouseLeave={this.onMouseLeave}
          />
